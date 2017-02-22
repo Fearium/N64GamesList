@@ -1,0 +1,47 @@
+<!--Created: February 21, 2017
+    N64 Game Collection List
+    Jesse Baril
+    200226521
+    This is the layout page for the to-do list -->
+<ion-header center text-center>
+  <ion-navbar>
+    <ion-title>N64 Game Collection List</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content center text-center>
+  <!-- Add Game button -->
+  <button ion-button round block (click)="addGame()">
+    <ion-icon name="add"></ion-icon>
+    Add New Game
+  </button>
+  <ion-list inset *ngFor="let listGame of listGames | async; let i = index;">
+    <ion-item-sliding (click)="switchComplete(listGame.$key, listGame.done)">
+      
+      <!-- If game is completed show normally -->
+      <ion-item text-wrap *ngIf="listGame.done === true">
+        <ion-label>
+          <s> {{i+1}}. {{listGame.game}} </s>
+        </ion-label>
+        <ion-checkbox color="positive" checked="true" disabled="true"></ion-checkbox>
+      </ion-item>
+
+      <!-- If game is owned, check box and cross line through text -->
+      <ion-item text-wrap *ngIf="listGame.done === false">
+        <ion-label>
+          {{i+1}}. {{listGame.game}}
+        </ion-label>
+        <ion-checkbox color="positive" checked="false" (click)="switchComplete(listGame.$key, listGame.done)"></ion-checkbox>
+      </ion-item>
+      
+      <!-- Options for game slide -->
+      <ion-item-options>
+        <button ion-button large color="primary" (click)="updateGame(listGame.$key, listGame.game)">
+          <ion-icon name="md-settings"></ion-icon>
+        </button>
+        <button ion-button large color="danger" (click)="removeGame(listGame.$key)">
+          <ion-icon name="md-close"></ion-icon>
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+  </ion-list>
+</ion-content>

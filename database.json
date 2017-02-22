@@ -1,0 +1,40 @@
+{
+    "gameList": [
+        {
+            "game": "Conker's Bad Fur Day",
+            "done": false
+        },
+        {
+            "game": "Banjo Kazooie",
+            "done": false
+        },
+        {
+            "game": "Super Smash Bros.",
+            "done": true
+        },
+        {
+            "game": "Goldeneye",
+            "done": true
+        },
+        {
+            "game": "Majora's Mask",
+            "done": false
+        },
+        {
+            "game": "Mario Kart",
+            "done": true
+        },
+        {
+            "game": "Ocarina of Time",
+            "done": true
+        },
+        {
+            "game": "Paper Mario",
+            "done": false
+        },
+        {
+            "game": "Star Fox 64",
+            "done": false
+        }
+    ]
+}
